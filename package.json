@@ -4,7 +4,7 @@
   "description": "no description yet",
   "main": "nxq.js",
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
