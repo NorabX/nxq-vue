@@ -1,8 +1,16 @@
 export default {
     methods: {
         q: function(x) {
-            let elem = document.querySelector(x);
-            return this.createNXQObject(elem);
+            let elems = document.querySelectorAll(x);
+
+            if(elems.length > 1) {
+                let nxq_objects = [];
+                for(const o of elems) {
+                    nxq_objects.push(this.createNXQObject(o));
+                }
+
+                return nxq_objects;
+            } else if(elems.length === 1) return this.createNXQObject(elems[0]);
         },
 
         createNXQObject: function(o) {
