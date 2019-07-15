@@ -20,12 +20,12 @@ export default {
             }
 
             o.text = function(v) {
-                if(v == undefined) return o.innerText;
+                if(v === undefined) return o.innerText;
                 else o.innerText = v;
             }
 
             o.html = function(v) {
-                if(v == undefined) return o.innerHTML;
+                if(v === undefined) return o.innerHTML;
                 else o.innerHTML = v;
             }
 
@@ -33,6 +33,7 @@ export default {
 
             o.addClass = function(v) { o.classList.add(v); }
             o.removeClass = function(v) { o.classList.remove(v); }
+            o.hasClass = function(v) { return o.classList.contains(v); }
 
             return o;
         }

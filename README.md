@@ -43,3 +43,4 @@ Hello, World
 ##### .on(type, listener)
 ##### .addClass(className)
 ##### .removeClass(className)
+##### .hasClass(className)
