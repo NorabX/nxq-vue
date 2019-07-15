@@ -35,6 +35,7 @@ export default {
             o.removeClass = function(v) { o.classList.remove(v); }
             o.hasClass = function(v) { return o.classList.contains(v); }
             o.toggleClass = function(v) { o.classList.toggle(v); }
+            o.replaceClass = function(ov, v) { o.classList.replace(ov, v); }
 
             return o;
         }

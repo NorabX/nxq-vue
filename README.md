@@ -45,3 +45,4 @@ Hello, World
 ##### .removeClass(className)
 ##### .hasClass(className)
 ##### .toggleClass(className)
+##### .replaceClass(className)
