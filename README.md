@@ -44,3 +44,4 @@ Hello, World
 ##### .addClass(className)
 ##### .removeClass(className)
 ##### .hasClass(className)
+##### .toggleClass(className)

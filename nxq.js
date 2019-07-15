@@ -34,6 +34,7 @@ export default {
             o.addClass = function(v) { o.classList.add(v); }
             o.removeClass = function(v) { o.classList.remove(v); }
             o.hasClass = function(v) { return o.classList.contains(v); }
+            o.toggleClass = function(v) { o.classList.toggle(v); }
 
             return o;
         }
