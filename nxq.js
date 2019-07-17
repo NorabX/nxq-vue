@@ -1,19 +1,30 @@
 export default {
     methods: {
         q: function(x) {
-            let elems = document.querySelectorAll(x);
+            if(typeof x === 'string') {
+                return this.createNXQObjects(document.querySelectorAll(x));
+            } else if(typeof x === 'object') {
+                if(x.q === undefined) return this.createNXQObjects(x)
+                else return x;
+            } else return undefined;
+        },
 
-            if(elems.length > 1) {
+        createNXQObjects: function(x) {
+            if(x.length > 1) {
                 let nxq_objects = [];
-                for(const o of elems) {
+                for(const o of x) {
                     nxq_objects.push(this.createNXQObject(o));
                 }
 
                 return nxq_objects;
-            } else if(elems.length === 1) return this.createNXQObject(elems[0]);
+            } else if(x.length === 1) {
+                return this.createNXQObject(x[0]);
+            }
         },
 
         createNXQObject: function(o) {
+            o.q = true;
+
             this.__qVal(o);
             this.__qText(o);
             this.__qHtml(o);
