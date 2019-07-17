@@ -50,3 +50,4 @@ Hello, World
 ##### .qFirst()
 ##### .qLast()
 ##### .qParent()
+##### .qParents()

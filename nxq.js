@@ -34,6 +34,7 @@ export default {
             this.__qFirst(o);
             this.__qLast(o);
             this.__qParent(o);
+            this.__qParents(o);
 
             return o;
         },
@@ -138,6 +139,23 @@ export default {
             o.qParent = function() {
                 return vm.createNXQObject(o.parentElement);
             }
-        }
+        },
+
+        // fd: qParents()
+        __qParents: function(o) {
+            const vm = this;
+
+            o.qParents = function() {
+                let parents = [];
+                let p = o.parentElement;
+
+                while(p !== null) {
+                    parents.push(vm.createNXQObject(p));
+                    p = p.parentElement;
+                }
+
+                return parents;
+            }
+        },
     }
 }
