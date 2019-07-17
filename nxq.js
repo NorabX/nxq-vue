@@ -24,10 +24,13 @@ export default {
             this.__qToggleClass(o);
             this.__qReplaceClass(o);
             this.__qChildren(o);
+            this.__qFirst(o);
+            this.__qLast(o);
 
             return o;
         },
 
+        // fd: qVal(value)
         __qVal: function(o) {
             o.qVal = function(v) {
                 if(v === undefined) return o.value;
@@ -35,6 +38,7 @@ export default {
             }
         },
 
+        // fd: qText(value)
         __qText: function(o) {
             o.qText = function(v) {
                 if(v === undefined) return o.innerText;
@@ -42,6 +46,7 @@ export default {
             }
         },
 
+        // fd: qHtml(value)
         __qHtml: function(o) {
             o.qHtml = function(v) {
                 if(v === undefined) return o.innerHTML;
@@ -49,30 +54,37 @@ export default {
             }
         },
 
+        // fd: qOn(type, listener)
         __qOn: function(o) {
             o.qOn = function(t, l) { o.addEventListener(t, l); }
         },
 
+        // fd: qAddClass(className)
         __qAddClass: function(o) {
             o.qAddClass = function(v) { o.classList.add(v); }
         },
 
+        // fd: qRemoveClass(className)
         __qRemoveClass: function(o) {
             o.qRemoveClass = function(v) { o.classList.remove(v); }
         },
 
+        // fd: qHasClass(className)
         __qHasClass: function(o) {
             o.qHasClass = function(v) { return o.classList.contains(v); }
         },
 
+        // fd: qToggleClass(value)
         __qToggleClass: function(o) {
             o.qToggleClass = function(v) { o.classList.toggle(v); }
         },
 
+        // fd: qReplaceClass(oldClassName, newClassName)
         __qReplaceClass: function(o) {
             o.qReplaceClass = function(ov, v) { o.classList.replace(ov, v); }
         },
 
+        // fd: qChildren()
         __qChildren: function(o) {
             const vm = this;
 
@@ -90,6 +102,24 @@ export default {
                 } else if(c.length == 1) {
                     return vm.createNXQObject(c[0]);
                 } else return undefined;
+            }
+        },
+
+        // fd:: qFirst()
+        __qFirst: function(o) {
+            const vm = this;
+
+            o.qFirst = function() {
+                return vm.createNXQObject(o.firstElementChild);
+            }
+        },
+
+        // fd: qLast()
+        __qLast: function(o) {
+            const vm = this;
+
+            o.qLast = function() {
+                return vm.createNXQObject(o.lastElementChild);
             }
         }
     }
