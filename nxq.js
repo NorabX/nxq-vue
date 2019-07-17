@@ -17,7 +17,11 @@ const NXQVue = {
                         for(const o of x) nxq_objects.push(this.createNXQObject(o));
 
                         return nxq_objects;
-                    } else if(x.length === 1) return this.createNXQObject(x[0]);
+                    } else if(x.length === 1) {
+                        return this.createNXQObject(x[0]);
+                    } else if(x.length === undefined) {
+                        return this.createNXQObject(x);
+                    }
                 },
 
                 createNXQObject: function(o) {
