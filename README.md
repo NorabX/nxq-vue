@@ -49,3 +49,4 @@ Hello, World
 ##### .qChildren()
 ##### .qFirst()
 ##### .qLast()
+##### .qParent()

@@ -12,14 +12,10 @@ export default {
         createNXQObjects: function(x) {
             if(x.length > 1) {
                 let nxq_objects = [];
-                for(const o of x) {
-                    nxq_objects.push(this.createNXQObject(o));
-                }
+                for(const o of x) nxq_objects.push(this.createNXQObject(o));
 
                 return nxq_objects;
-            } else if(x.length === 1) {
-                return this.createNXQObject(x[0]);
-            }
+            } else if(x.length === 1) return this.createNXQObject(x[0]);
         },
 
         createNXQObject: function(o) {
@@ -37,6 +33,7 @@ export default {
             this.__qChildren(o);
             this.__qFirst(o);
             this.__qLast(o);
+            this.__qParent(o);
 
             return o;
         },
@@ -131,6 +128,15 @@ export default {
 
             o.qLast = function() {
                 return vm.createNXQObject(o.lastElementChild);
+            }
+        },
+
+        // fd: qParent()
+        __qParent: function(o) {
+            const vm = this;
+
+            o.qParent = function() {
+                return vm.createNXQObject(o.parentElement);
             }
         }
     }
