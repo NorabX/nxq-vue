@@ -1,6 +1,6 @@
 {
   "name": "nxq-vue",
-  "version": "0.0.12",
+  "version": "0.0.16",
   "description": "Simple Vue.js mixin for HTML document manipulation.",
   "main": "nxq.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "https://github.com/NorabX/nxq-vue.git"
   },
   "keywords": [
-    "nxq", "nxq-vue", "vue", "vuejs", "mixin", "javascript", "js"
+    "nxq", "nxq-vue", "vue", "vuejs", "mixin", "plugin", "javascript", "js"
   ],
   "author": "NorabX",
   "license": "ISC"

@@ -21,7 +21,7 @@ Install nxq-vue via npm: `npm install nxq-vue`
 <script src="app.js"></script>
 
 // app.js
-import nxq from './node_modules/nxq-vue/nxq.js'
+import NXQVue from 'nxq-vue';
 
 const app = new Vue({
     el: '#app',
