@@ -27,7 +27,7 @@ const app = new Vue({
     el: '#app',
     mixins:[nxq],
     mounted() {
-        console.log(this.q('#div1').text())
+        console.log(this.q('#div1').qText())
     }
 });
 
@@ -37,12 +37,13 @@ Hello, World
 
 ## Functions
 
-##### .val(value)
-##### .text(value)
-##### .html(value)
-##### .on(type, listener)
-##### .addClass(className)
-##### .removeClass(className)
-##### .hasClass(className)
-##### .toggleClass(className)
-##### .replaceClass(className)
+##### .qVal(value)
+##### .qText(value)
+##### .qHtml(value)
+##### .qOn(type, listener)
+##### .qAddClass(className)
+##### .qRemoveClass(className)
+##### .qHasClass(className)
+##### .qToggleClass(className)
+##### .qReplaceClass(className)
+##### .qChildren(className)

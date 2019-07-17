@@ -14,28 +14,41 @@ export default {
         },
 
         createNXQObject: function(o) {
-            o.val = function(v) {
+            const vm = this;
+
+            o.qVal = function(v) {
                 if(v === undefined) return o.value;
                 else o.value = v;
             }
 
-            o.text = function(v) {
+            o.qText = function(v) {
                 if(v === undefined) return o.innerText;
                 else o.innerText = v;
             }
 
-            o.html = function(v) {
+            o.qHtml = function(v) {
                 if(v === undefined) return o.innerHTML;
                 else o.innerHTML = v;
             }
 
-            o.on = function(t, l) { o.addEventListener(t, l); }
+            o.qOn = function(t, l) { o.addEventListener(t, l); }
 
-            o.addClass = function(v) { o.classList.add(v); }
-            o.removeClass = function(v) { o.classList.remove(v); }
-            o.hasClass = function(v) { return o.classList.contains(v); }
-            o.toggleClass = function(v) { o.classList.toggle(v); }
-            o.replaceClass = function(ov, v) { o.classList.replace(ov, v); }
+            o.qAddClass = function(v) { o.classList.add(v); }
+            o.qRemoveClass = function(v) { o.classList.remove(v); }
+            o.qHasClass = function(v) { return o.classList.contains(v); }
+            o.qToggleClass = function(v) { o.classList.toggle(v); }
+            o.qReplaceClass = function(ov, v) { o.classList.replace(ov, v); }
+
+            o.qChildren = function() {
+                const c = o.children;
+                let children = [];
+
+                for(let i = 0; i < c.length; i++) {
+                    children.push(vm.createNXQObject(c[i]));
+                }
+
+                return children;
+            }
 
             return o;
         }
