@@ -1,10 +1,10 @@
 {
   "name": "nxq-vue",
-  "version": "0.0.18",
+  "version": "0.0.20",
   "description": "Simple Vue.js mixin for HTML document manipulation.",
   "main": "nxq.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,9 @@
   "author": "NorabX",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
     "vue": "^2.6.10"
   }
 }

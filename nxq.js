@@ -2,6 +2,10 @@ const NXQVue = {
     install(Vue, options) {
         Vue.mixin({
             methods: {
+                testFunction: function() {
+                    return document.querySelectorAll('#d1');
+                },
+
                 q: function(x, y, z) {
 
                     if(y === undefined) {
