@@ -2,13 +2,25 @@ const NXQVue = {
     install(Vue, options) {
         Vue.mixin({
             methods: {
-                q: function(x) {
-                    if(typeof x === 'string') {
-                        return this.createNXQObjects(document.querySelectorAll(x));
-                    } else if(typeof x === 'object') {
-                        if(x.q === undefined) return this.createNXQObjects(x);
-                        else return x;
-                    } else return undefined;
+                q: function(x, y, z) {
+
+                    if(y === undefined) {
+                        if(typeof x === 'string') {
+                            return this.createNXQObjects(document.querySelectorAll(x));
+                        } else if(typeof x === 'object') {
+                            if(x.q === undefined) return this.createNXQObjects(x);
+                            else return x;
+                        } else return undefined;
+                    }
+
+                    else {
+                        if(typeof x === 'string') {
+                            return this.qQuery(document.querySelectorAll(x), y, z);
+                        } else if(typeof x === 'object') {
+                            if(Array.isArray(x)) return this.qQuery(x, y, z);
+                            else return this.qQuery([x], y, z);
+                        }
+                    }
                 },
 
                 createNXQObjects: function(x) {
@@ -194,6 +206,80 @@ const NXQVue = {
 
                         // e.g.: qCss("color", "blue")
                         } else o.style[p] = v;
+                    }
+                },
+
+                qQuery: function(elems, y, z) {
+                    let res = [];
+
+                    for(let j = 0; j < elems.length; j++) {
+                        let elem = elems[j];
+
+                        if(typeof y === 'string') {
+                            if(z === undefined) res.push(this.__qQgetVal(elem, y));
+                            else this.__qQsetVal(elem, y, z);
+                        } else {
+                            if(typeof y === 'object') {
+                                if(Array.isArray(y)) res.push(this.__qQgetVals(elem, y));
+                                else this.__qQsetVals(elem, y, z);
+                            }
+                        }
+                    }
+
+                    return res;
+                },
+
+                __qQgetVal: function(elem, y) {
+                    switch(y) {
+                        case "value": return elem.value; break;
+                        case "text": return elem.innerText; break;
+                        case "html": return elem.innerHTML; break;
+
+                        case "children": return elem.children; break;
+                        case "parent": return elem.parent; break;
+                        case "first": return elem.firstElementChild; break;
+                        case "last": return elem.lastElementChild; break;
+                        default: return undefined;
+                    }
+                },
+
+                __qQgetVals: function(elem, y) {
+                    let values = {};
+
+                    for(let i = 0; i < y.length; i++) {
+                        switch(y[i]) {
+                            case "value": values.value = elem.value; break;
+                            case "text": values.text = elem.innerText; break;
+                            case "html": values.html = elem.innerHTML; break;
+
+                            case "children": values.children = elem.children; break;
+                            case "parent": values.parent = elem.parent; break;
+                            case "first": values.first = elem.firstElementChild; break;
+                            case "last": values.last = elem.lastElementChild; break;
+
+                        }
+                    }
+
+                    return values;
+                },
+
+                __qQsetVal: function(elem, y, z) {
+                    switch(y) {
+                        case "value": elem.value = z; break;
+                        case "text": elem.innerText = z; break;
+                        case "html": elem.innerHTML = z; break;
+                    }
+                },
+
+                __qQsetVals: function(elem, y, z) {
+                    const props = Object.keys(y);
+
+                    for(let i = 0; i < props.length; i++) {
+                        switch(props[i]) {
+                            case "value": elem.value = y[props[i]]; break;
+                            case "text": elem.innerText = y[props[i]]; break;
+                            case "html": elem.innerHTML = y[props[i]]; break;
+                        }
                     }
                 },
             }

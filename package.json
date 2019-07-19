@@ -11,8 +11,18 @@
     "url": "https://github.com/NorabX/nxq-vue.git"
   },
   "keywords": [
-    "nxq", "nxq-vue", "vue", "vuejs", "mixin", "plugin", "javascript", "js"
+    "nxq",
+    "nxq-vue",
+    "vue",
+    "vuejs",
+    "mixin",
+    "plugin",
+    "javascript",
+    "js"
   ],
   "author": "NorabX",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "vue": "^2.6.10"
+  }
 }
