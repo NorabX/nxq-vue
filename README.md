@@ -22,10 +22,10 @@ Install nxq-vue via npm: `npm install nxq-vue`
 
 // app.js
 import NXQVue from 'nxq-vue';
+Vue.use(NXQVue);
 
 const app = new Vue({
     el: '#app',
-    mixins:[nxq],
     mounted() {
         console.log(this.q('#div1').qText())
     }
@@ -51,3 +51,4 @@ Hello, World
 ##### .qLast()
 ##### .qParent()
 ##### .qParents()
+##### .qCss(prop, value)

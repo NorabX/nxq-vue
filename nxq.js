@@ -41,6 +41,7 @@ const NXQVue = {
                     this.__qLast(o);
                     this.__qParent(o);
                     this.__qParents(o);
+                    this.__qCss(o);
 
                     return o;
                 },
@@ -161,6 +162,38 @@ const NXQVue = {
                         }
 
                         return parents;
+                    }
+                },
+
+                // fd: qCss(prop, value)
+                __qCss: function(o) {
+                    o.qCss = function(p, v) {
+                        if(v === undefined) {
+
+                            // e.g.: qCss("color")
+                            if(typeof p === 'string') return o.style[p];
+                            else if(typeof p === 'object') {
+
+                                // e.g.: qCss(["color", "background-color"])
+                                if(Array.isArray(p)) {
+                                    let values = []
+                                    for(let i = 0; i < p.length; i++) {
+                                        values.push(o.style[p[i]]);
+                                    }
+                                    return values;
+                                }
+
+                                // e.g.: qCss({"color": "red", "background-color": "white"})
+                                else {
+                                    const props = Object.keys(p);
+                                    for(let i = 0; i < props.length; i++) {
+                                        o.style[props[i]] = p[props[i]];
+                                    }
+                                }
+                            }
+
+                        // e.g.: qCss("color", "blue")
+                        } else o.style[p] = v;
                     }
                 },
             }
