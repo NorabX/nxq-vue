@@ -37,18 +37,56 @@ Hello, World
 
 ## Functions
 
+##### .qVal()
+Gets the value of the HTML attribute value
+
 ##### .qVal(value)
+Sets the value of the HTML attribute value to `value`
+
+##### .qText()
+Gets the value of the HTML DOM innerText property
+
 ##### .qText(value)
+Sets the value of the HTML DOM innerText property to `value`
+
+##### .qHtml()
+Gets the value of the HTML DOM innerHtml property
+
 ##### .qHtml(value)
+Sets the value of the HTML DOM innerHtml property to `value`
+
 ##### .qOn(type, listener)
+Adds event listener
+
 ##### .qAddClass(className)
+Adds `className` to the HTML attribute class
+
 ##### .qRemoveClass(className)
+Removes `className` from the HTML attribute class
+
 ##### .qHasClass(className)
+Checks if the HTML attribute class contains `className`
+
 ##### .qToggleClass(className)
+If the HTML attribute class contains `className` removes it, otherwise adds it
+
 ##### .qReplaceClass(oldClassName, newClassName)
+Replace `oldClassName` with `newClassName` in the HTML attribute class
+
 ##### .qChildren()
+Return all children
+
 ##### .qFirst()
+Returns the first child
+
 ##### .qLast()
+Returns the last child
+
 ##### .qParent()
+Returns the first parent
+
 ##### .qParents()
+Return all parents
+
 ##### .qCss(prop, value)
+Manipulate the HTML attribute style
