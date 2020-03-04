@@ -4,7 +4,7 @@
   "description": "Simple Vue.js mixin for HTML document manipulation.",
   "main": "nxq.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,13 @@
   "author": "NorabX",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.5.5",
-    "babel-jest": "^24.8.0",
-    "jest": "^24.8.0",
-    "vue": "^2.6.10"
+    "@babel/preset-env": "^7.8.6",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "vue": "^2.6.11"
+  },
+  "dependencies": {
+    "@vue/test-utils": "^1.0.0-beta.31",
+    "vue-template-compiler": "^2.6.11"
   }
 }
